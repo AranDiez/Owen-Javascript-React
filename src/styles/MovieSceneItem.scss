@@ -1,0 +1,26 @@
+@import '../styles/variables';
+
+.main__section1--movieImage {
+  width: 6.25rem;
+  border: solid $darkBlue 0.125rem;
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+  line-height: 1.5em;
+}
+.main__section1--movieTitle {
+  margin: 0.313rem;
+}
+.main__section1--movieQuote {
+  margin: 0.313rem;
+}
+.main__section1--movieDetails {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: $darkBlue;
+  border: solid $darkBlue 0.125rem;
+  padding: 0.625rem;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.main__section1--movieDetails:hover {
+  background-color: $darkBlue;
+  color: $lightBlue;
+}

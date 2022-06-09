@@ -1,0 +1,24 @@
+@import '../styles/variables';
+
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fontMain;
+  background-color: $lightBlue;
+  color: $darkBlue;
+}
+.main__title {
+  text-align: center;
+  font-size: 3.125rem;
+  animation: main__title 1s infinite ease-in-out alternate;
+}
+
+@keyframes main__title {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
