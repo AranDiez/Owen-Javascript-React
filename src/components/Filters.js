@@ -1,6 +1,7 @@
 import '../styles/Filters.scss';
 import FilterMovie from './FilterMovie';
 import FilterYear from './FilterYear';
+import FilterLengthQuote from './FilterLengthQuote';
 
 function Filters(props) {
   const handleSubmit = (ev) => {
@@ -13,6 +14,7 @@ function Filters(props) {
           handleFilterMovie={props.handleFilterMovie}
           filterMovie={props.filterMovie}
         />
+
         <FilterYear
           handleFilterYear={props.handleFilterYear}
           years={props.years}

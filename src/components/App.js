@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import getApiData from '../services/moviesApi';
 import MovieSceneList from './MovieSceneList';
+import Header from './Header';
 import Filters from './Filters';
 import MovieSceneDetail from './MovieSceneDetail';
 import ls from '../services/localStorage';
@@ -13,6 +14,7 @@ const App = () => {
   const [dataMovies, setDataMovies] = useState(ls.get('movies', []));
   const [filterMovie, setFilterMovie] = useState('');
   const [filterYears, setFilterYears] = useState('');
+  const [filterLength, setFilterLength] = useState(0);
 
   useEffect(() => {
     if (dataMovies.length === 0) {
@@ -32,8 +34,18 @@ const App = () => {
   const handleFilterYear = (value) => {
     setFilterYears(value);
   };
+  const handleFilterLength = (value) => {
+    setFilterLength(value);
+  };
 
   const movieFilters = dataMovies
+    .filter((item) => {
+      if (filterLength === 0) {
+        return true;
+      } else {
+        return item.full_line.length === filterLength;
+      }
+    })
     .filter((item) => {
       return item.title.toLowerCase().includes(filterMovie.toLowerCase());
     })
@@ -60,18 +72,18 @@ const App = () => {
 
   return (
     <>
-      <h1 className="main__title">
-        Owen Wilson <span className="wow">WOW</span>
-      </h1>
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <Header />
               <Filters
                 handleFilterMovie={handleFilterMovie}
                 filterMovie={filterMovie}
                 handleFilterYear={handleFilterYear}
+                handleFilterLength={handleFilterLength}
+                filterLength={filterLength}
                 years={getYear()}
               />
               <MovieSceneList movies={movieFilters} />
@@ -98,7 +110,7 @@ export default App;
 // 7 - He creado filters.js para gestionar filtros
 // 8 - Creamos una variable de estado donde yo filtro por pelicula. Se modifica cuando escribe en el input la usuaria
 // 9 - => FilterMovie
-// 10 - userlist es quien pinta, necesitamos mandarle los datos ya filtrados. Creamos la constante movieFilters y ahi haremos los filters.
+// 10 - movielist es quien pinta, necesitamos mandarle los datos ya filtrados. Creamos la constante movieFilters y ahi haremos los filters.
 // 11 - Ahora hago el filter por year. He creado el componente FilterYear que es hijo de Filters
 // 12 - => Filter Year
 // 13 - creo una funcion getYear que me permita sacar los años de movieFilters. Creo un array que solo tenga los años

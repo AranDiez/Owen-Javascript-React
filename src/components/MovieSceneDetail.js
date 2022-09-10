@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../styles/MovieSceneDetail.scss';
+import Header from './Header';
 function MovieSceneDetail(props) {
   return (
     <>
+      <Header />
       <section className="main__section2">
         <img
           className="main__section2--img"

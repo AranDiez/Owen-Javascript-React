@@ -12,7 +12,6 @@ function MovieSceneItem(props) {
       <h2 className="main__section1--movieTitle">
         {props.movie.title} - {props.movie.year}
       </h2>
-      <p className="main__section1--movieQuote">"{props.movie.full_line}"</p>
 
       <Link
         to={`/movie/${props.movie.id}`}

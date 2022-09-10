@@ -1,0 +1,46 @@
+@import '../styles/variables';
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  // width: 100vw;
+}
+.main__title {
+  margin-top: 80px;
+}
+
+.main__img1 {
+  height: 230px;
+  animation: hithere 1s;
+  animation-iteration-count: 2;
+  @media all and (min-width: 500px) {
+    height: 300px;
+  }
+
+  @media all and (min-width: 768px) {
+    height: 300px;
+  }
+  @media all and (min-width: 1200px) {
+    height: 350px;
+  }
+}
+
+@keyframes hithere {
+  30% {
+    transform: scale(1.2);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
